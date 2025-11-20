@@ -195,8 +195,7 @@ python3 server.py
 
 ### v0.6.0 (Current) ✅
 
-**Status**: Production-ready  
-**Release Date**: November 2025
+**Status**: Production-ready
 
 **Features**:
 - Plain text extraction from PDF documents
@@ -215,7 +214,6 @@ python3 server.py
 
 ### v0.7.0 (In Development) 🚧
 
-**Target Release**: December 2025  
 **Focus**: Structured markdown output with layout detection
 
 **Key Features**:
@@ -242,7 +240,6 @@ python3 server.py
 
 ### v0.8.0 (Planned) 📐
 
-**Target Release**: Q1 2026  
 **Focus**: Element extraction and spatial analysis
 
 **Planned Features**:
@@ -262,7 +259,6 @@ python3 server.py
 
 ### v0.9.0 (Planned) 📋
 
-**Target Release**: Q2 2026  
 **Focus**: DOCX generation with formatting preservation
 
 **Planned Features**:
@@ -286,7 +282,6 @@ python3 server.py
 
 ### v1.0.0 (Stable Release) 🎯
 
-**Target Release**: Q3 2026  
 **Focus**: Production-ready release with comprehensive features
 
 **Objectives**:

@@ -19,8 +19,7 @@ API OCR ad alte prestazioni basata su PaddleOCR-VL, deployata su Google Cloud Ru
 
 ### v0.6.0 (Attuale) ✅
 
-**Stato**: Production-ready  
-**Data Rilascio**: Novembre 2025
+**Stato**: Production-ready
 
 **Funzionalità**:
 - Estrazione testo plain da documenti PDF
@@ -39,7 +38,6 @@ API OCR ad alte prestazioni basata su PaddleOCR-VL, deployata su Google Cloud Ru
 
 ### v0.7.0 (In Sviluppo) 🚧
 
-**Rilascio Previsto**: Dicembre 2025  
 **Focus**: Output markdown strutturato con rilevamento layout
 
 **Funzionalità Principali**:
@@ -66,7 +64,6 @@ API OCR ad alte prestazioni basata su PaddleOCR-VL, deployata su Google Cloud Ru
 
 ### v0.8.0 (Pianificata) 📐
 
-**Rilascio Previsto**: Q1 2026  
 **Focus**: Estrazione elementi e analisi spaziale
 
 **Funzionalità Pianificate**:
@@ -86,7 +83,6 @@ API OCR ad alte prestazioni basata su PaddleOCR-VL, deployata su Google Cloud Ru
 
 ### v0.9.0 (Pianificata) 📋
 
-**Rilascio Previsto**: Q2 2026  
 **Focus**: Generazione DOCX con preservazione formattazione
 
 **Funzionalità Pianificate**:
@@ -110,7 +106,6 @@ API OCR ad alte prestazioni basata su PaddleOCR-VL, deployata su Google Cloud Ru
 
 ### v1.0.0 (Release Stabile) 🎯
 
-**Rilascio Previsto**: Q3 2026  
 **Focus**: Release production-ready con funzionalità complete
 
 **Obiettivi**:
