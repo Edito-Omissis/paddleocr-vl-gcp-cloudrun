@@ -199,16 +199,27 @@ python3 server.py
 - OpenAI-compatible API
 - GPU acceleration with NVIDIA L4
 
-### v1.0.0 (Next) 🚧
+### v0.7.0 (Next) 🚧
 - **Structured Markdown Output**: Proper markdown formatting with headings, tables, lists
 - **Layout Detection**: Automatic document structure recognition
 - **Enhanced Table Recognition**: Markdown table format
 - Migration to official PaddleOCR pipeline
 
-### v2.0.0 (Future) 📋
+### v0.8.0 (Planned) 📐
+- **Element Cropping**: Extract and crop individual document elements
+- **Image Extraction**: Save images from charts and figures
+- **Bounding Box Detection**: Precise element positioning
+
+### v0.9.0 (Planned) 📋
 - **DOCX Generation**: Direct conversion to Microsoft Word format
-- **Image Extraction**: Extract and embed images from documents
+- **Image Embedding**: Embed extracted images in DOCX
 - **Advanced Formatting**: Preserve document styling and layout
+
+### v1.0.0 (Stable Release) 🎯
+- Production-ready with all features
+- Performance optimizations
+- Comprehensive documentation
+- Full test coverage
 
 ## 🔒 License Compliance
 

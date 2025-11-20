@@ -23,16 +23,27 @@ API OCR ad alte prestazioni basata su PaddleOCR-VL, deployata su Google Cloud Ru
 - API compatibile OpenAI
 - Accelerazione GPU con NVIDIA L4
 
-### v1.0.0 (Prossima) 🚧
+### v0.7.0 (Prossima) 🚧
 - **Output Markdown Strutturato**: Formattazione markdown con titoli, tabelle, liste
 - **Rilevamento Layout**: Riconoscimento automatico struttura documento
 - **Tabelle Avanzate**: Formato markdown table
 - Migrazione a pipeline ufficiale PaddleOCR
 
-### v2.0.0 (Futura) 📋
+### v0.8.0 (Pianificata) 📐
+- **Crop Elementi**: Estrazione e ritaglio elementi individuali del documento
+- **Estrazione Immagini**: Salvataggio immagini da grafici e figure
+- **Rilevamento Bounding Box**: Posizionamento preciso elementi
+
+### v0.9.0 (Pianificata) 📋
 - **Generazione DOCX**: Conversione diretta in formato Microsoft Word
-- **Estrazione Immagini**: Estrazione e incorporamento immagini da documenti
+- **Incorporamento Immagini**: Incorpora immagini estratte in DOCX
 - **Formattazione Avanzata**: Preservazione stile e layout documento
+
+### v1.0.0 (Release Stabile) 🎯
+- Production-ready con tutte le funzionalità
+- Ottimizzazioni performance
+- Documentazione completa
+- Copertura test completa
 
 ## 🚀 Quick Start
 
