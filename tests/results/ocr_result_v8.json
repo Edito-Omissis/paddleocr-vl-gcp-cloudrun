@@ -1,0 +1,1 @@
+{"success":true,"pages":1,"markdown":"<!-- Page 1 -->\n\nUser: OCR:\nAssistant: PaddleOCR-VL Test Document\nThis is a test document for OCR processing.\nLine 1: Hello World\nLine 2: Testing OCR functionality\nLine 3: Cloud Run deployment successful\\!\nDate: November 19, 2025\nStatus: Production Ready","total_chars":254}
