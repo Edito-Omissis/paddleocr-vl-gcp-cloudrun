@@ -18,32 +18,127 @@ API OCR ad alte prestazioni basata su PaddleOCR-VL, deployata su Google Cloud Ru
 ## 🗺️ Roadmap
 
 ### v0.6.0 (Attuale) ✅
-- Estrazione testo plain da PDF
-- Rilevamento intelligente pagine vuote
-- API compatibile OpenAI
-- Accelerazione GPU con NVIDIA L4
 
-### v0.7.0 (Prossima) 🚧
-- **Output Markdown Strutturato**: Formattazione markdown con titoli, tabelle, liste
-- **Rilevamento Layout**: Riconoscimento automatico struttura documento
-- **Tabelle Avanzate**: Formato markdown table
-- Migrazione a pipeline ufficiale PaddleOCR
+**Stato**: Production-ready  
+**Data Rilascio**: Novembre 2025
+
+**Funzionalità**:
+- Estrazione testo plain da documenti PDF
+- Rilevamento intelligente pagine vuote tramite analisi varianza ROI
+- Endpoint API compatibili OpenAI (`/v1/chat/completions`)
+- Accelerazione GPU con NVIDIA L4 (24GB VRAM)
+- Elaborazione documenti multi-pagina
+- Supporto 109 lingue tramite modello PaddleOCR-VL
+
+**Stack Tecnico**:
+- Inferenza: Approccio basato su Transformers con `AutoModelForCausalLM`
+- Framework: PyTorch 2.3.0 con CUDA 12.1
+- Deployment: Google Cloud Run con supporto GPU
+
+---
+
+### v0.7.0 (In Sviluppo) 🚧
+
+**Rilascio Previsto**: Dicembre 2025  
+**Focus**: Output markdown strutturato con rilevamento layout
+
+**Funzionalità Principali**:
+- **Output Markdown Strutturato**: Formattazione corretta con titoli (`#`, `##`), tabelle (`|`), liste ed enfasi (`**`, `*`)
+- **Pipeline Pre-processing Documenti**:
+  - Classificazione orientamento (rilevamento e correzione 0°, 90°, 180°, 270°)
+  - Document unwarping (correzione rotazioni 1-5° e rimozione distorsioni prospettiche)
+- **Rilevamento Layout**: PP-DocLayoutV2 con RT-DETR per riconoscimento accurato struttura documento
+- **Riconoscimento Tabelle Avanzato**: Formato markdown table con allineamento celle corretto
+- **Intelligenza Ordine Lettura**: Sequenziamento corretto elementi (alto-basso, sinistra-destra)
+
+**Modifiche Tecniche**:
+- Migrazione da PyTorch/Transformers a ecosistema PaddlePaddle
+- Integrazione pipeline ufficiale PaddleOCR con classe `PaddleOCRVL`
+- Elaborazione multi-stadio: orientamento → unwarping → rilevamento layout → riconoscimento elementi
+- Supporto CUDA 12.6 per PaddlePaddle 3.2.0
+
+**Performance Attese**:
+- Velocità elaborazione: ~0.8-1.0 pagine/secondo su GPU L4
+- Efficienza memoria: ~40% riduzione rispetto a v0.6.0
+- Accuratezza layout: 95%+ con pipeline pre-processing
+
+---
 
 ### v0.8.0 (Pianificata) 📐
-- **Crop Elementi**: Estrazione e ritaglio elementi individuali del documento
-- **Estrazione Immagini**: Salvataggio immagini da grafici e figure
-- **Rilevamento Bounding Box**: Posizionamento preciso elementi
+
+**Rilascio Previsto**: Q1 2026  
+**Focus**: Estrazione elementi e analisi spaziale
+
+**Funzionalità Pianificate**:
+- **Crop Elementi**: Estrazione elementi individuali documento (blocchi testo, tabelle, figure) come immagini separate
+- **Estrazione Immagini**: Salvataggio immagini incorporate, grafici e diagrammi da documenti
+- **Rilevamento Bounding Box**: Coordinate spaziali precise per tutti gli elementi rilevati
+- **Classificazione Elementi**: Categorizzazione automatica (titolo, paragrafo, tabella, figura, formula)
+- **Relazioni Spaziali**: Preservazione informazioni posizionamento relativo
+
+**Casi d'Uso**:
+- Segmentazione documenti per elaborazione downstream
+- Generazione dati training per modelli ML
+- Analisi documenti granulare
+- Ricostruzione layout personalizzata
+
+---
 
 ### v0.9.0 (Pianificata) 📋
-- **Generazione DOCX**: Conversione diretta in formato Microsoft Word
-- **Incorporamento Immagini**: Incorpora immagini estratte in DOCX
-- **Formattazione Avanzata**: Preservazione stile e layout documento
+
+**Rilascio Previsto**: Q2 2026  
+**Focus**: Generazione DOCX con preservazione formattazione
+
+**Funzionalità Pianificate**:
+- **Generazione DOCX**: Conversione diretta da PDF a formato Microsoft Word
+- **Incorporamento Immagini**: Inserimento automatico immagini estratte nelle posizioni corrette
+- **Formattazione Avanzata**:
+  - Preservazione stili e dimensioni font
+  - Spaziatura e allineamento paragrafi
+  - Bordi tabelle e formattazione celle
+  - Rilevamento intestazioni e piè di pagina
+- **Layout Multi-colonna**: Supporto strutture documento complesse
+- **Preservazione Metadati**: Proprietà documento, informazioni autore, data creazione
+
+**Approccio Tecnico**:
+- Integrazione con libreria `python-docx`
+- Engine mapping layout-to-DOCX
+- Inferenza stile da elementi visuali
+- Formattazione basata su template
+
+---
 
 ### v1.0.0 (Release Stabile) 🎯
-- Production-ready con tutte le funzionalità
-- Ottimizzazioni performance
-- Documentazione completa
-- Copertura test completa
+
+**Rilascio Previsto**: Q3 2026  
+**Focus**: Release production-ready con funzionalità complete
+
+**Obiettivi**:
+- **Feature Complete**: Tutte le funzionalità pianificate da v0.6-v0.9 implementate e testate
+- **Performance Ottimizzate**:
+  - Supporto elaborazione batch per scenari high-throughput
+  - Ottimizzazione memoria per documenti grandi (100+ pagine)
+  - Accelerazione inferenza con backend vLLM o SGLang
+- **Hardening Produzione**:
+  - Gestione errori e recovery completa
+  - Logging e monitoring estensivi
+  - Rate limiting e gestione risorse
+- **Documentazione**:
+  - Riferimento API completo
+  - Guide integrazione per framework comuni
+  - Raccomandazioni tuning performance
+  - Guide troubleshooting
+- **Testing**:
+  - 90%+ copertura codice
+  - Test integrazione per tutti gli endpoint
+  - Benchmark performance su tipi documento
+  - Stress testing per richieste concorrenti
+
+**Metriche Qualità**:
+- Uptime: 99.9% SLA
+- Accuratezza elaborazione: 98%+ per documenti standard
+- Tempo risposta API: < 5s per documenti tipici
+- Supporto 109 lingue con qualità consistente
 
 ## 🚀 Quick Start
 

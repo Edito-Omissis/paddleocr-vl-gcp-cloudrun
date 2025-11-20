@@ -194,32 +194,127 @@ python3 server.py
 ## 🗺️ Roadmap
 
 ### v0.6.0 (Current) ✅
-- Plain text extraction from PDFs
-- Intelligent blank page detection
-- OpenAI-compatible API
-- GPU acceleration with NVIDIA L4
 
-### v0.7.0 (Next) 🚧
-- **Structured Markdown Output**: Proper markdown formatting with headings, tables, lists
-- **Layout Detection**: Automatic document structure recognition
-- **Enhanced Table Recognition**: Markdown table format
-- Migration to official PaddleOCR pipeline
+**Status**: Production-ready  
+**Release Date**: November 2025
+
+**Features**:
+- Plain text extraction from PDF documents
+- Intelligent blank page detection using ROI-based variance analysis
+- OpenAI-compatible API endpoints (`/v1/chat/completions`)
+- GPU acceleration with NVIDIA L4 (24GB VRAM)
+- Multi-page document processing
+- 109 languages support via PaddleOCR-VL model
+
+**Technical Stack**:
+- Inference: Transformers-based approach with `AutoModelForCausalLM`
+- Framework: PyTorch 2.3.0 with CUDA 12.1
+- Deployment: Google Cloud Run with GPU support
+
+---
+
+### v0.7.0 (In Development) 🚧
+
+**Target Release**: December 2025  
+**Focus**: Structured markdown output with layout detection
+
+**Key Features**:
+- **Structured Markdown Output**: Proper formatting with headings (`#`, `##`), tables (`|`), lists, and emphasis (`**`, `*`)
+- **Document Pre-processing Pipeline**:
+  - Orientation classification (0°, 90°, 180°, 270° detection and correction)
+  - Document unwarping (1-5° rotation correction and perspective distortion removal)
+- **Layout Detection**: PP-DocLayoutV2 with RT-DETR for accurate document structure recognition
+- **Enhanced Table Recognition**: Markdown table format with proper cell alignment
+- **Reading Order Intelligence**: Correct element sequencing (top-to-bottom, left-to-right)
+
+**Technical Changes**:
+- Migration from PyTorch/Transformers to PaddlePaddle ecosystem
+- Official PaddleOCR pipeline integration with `PaddleOCRVL` class
+- Multi-stage processing: orientation → unwarping → layout detection → element recognition
+- CUDA 12.6 support for PaddlePaddle 3.2.0
+
+**Expected Performance**:
+- Processing speed: ~0.8-1.0 pages/second on L4 GPU
+- Memory efficiency: ~40% reduction compared to v0.6.0
+- Layout accuracy: 95%+ with pre-processing pipeline
+
+---
 
 ### v0.8.0 (Planned) 📐
-- **Element Cropping**: Extract and crop individual document elements
-- **Image Extraction**: Save images from charts and figures
-- **Bounding Box Detection**: Precise element positioning
+
+**Target Release**: Q1 2026  
+**Focus**: Element extraction and spatial analysis
+
+**Planned Features**:
+- **Element Cropping**: Extract individual document elements (text blocks, tables, figures) as separate images
+- **Image Extraction**: Save embedded images, charts, and diagrams from documents
+- **Bounding Box Detection**: Precise spatial coordinates for all detected elements
+- **Element Classification**: Automatic categorization (heading, paragraph, table, figure, formula)
+- **Spatial Relationships**: Preserve relative positioning information
+
+**Use Cases**:
+- Document segmentation for downstream processing
+- Training data generation for ML models
+- Fine-grained document analysis
+- Custom layout reconstruction
+
+---
 
 ### v0.9.0 (Planned) 📋
-- **DOCX Generation**: Direct conversion to Microsoft Word format
-- **Image Embedding**: Embed extracted images in DOCX
-- **Advanced Formatting**: Preserve document styling and layout
+
+**Target Release**: Q2 2026  
+**Focus**: DOCX generation with formatting preservation
+
+**Planned Features**:
+- **DOCX Generation**: Direct conversion from PDF to Microsoft Word format
+- **Image Embedding**: Automatic insertion of extracted images in correct positions
+- **Advanced Formatting**:
+  - Font styles and sizes preservation
+  - Paragraph spacing and alignment
+  - Table borders and cell formatting
+  - Header and footer detection
+- **Multi-column Layout**: Support for complex document structures
+- **Metadata Preservation**: Document properties, author information, creation date
+
+**Technical Approach**:
+- Integration with `python-docx` library
+- Layout-to-DOCX mapping engine
+- Style inference from visual elements
+- Template-based formatting
+
+---
 
 ### v1.0.0 (Stable Release) 🎯
-- Production-ready with all features
-- Performance optimizations
-- Comprehensive documentation
-- Full test coverage
+
+**Target Release**: Q3 2026  
+**Focus**: Production-ready release with comprehensive features
+
+**Objectives**:
+- **Feature Complete**: All planned features from v0.6-v0.9 fully implemented and tested
+- **Performance Optimized**:
+  - Batch processing support for high-throughput scenarios
+  - Memory optimization for large documents (100+ pages)
+  - Inference acceleration with vLLM or SGLang backends
+- **Production Hardening**:
+  - Comprehensive error handling and recovery
+  - Extensive logging and monitoring
+  - Rate limiting and resource management
+- **Documentation**:
+  - Complete API reference
+  - Integration guides for common frameworks
+  - Performance tuning recommendations
+  - Troubleshooting guides
+- **Testing**:
+  - 90%+ code coverage
+  - Integration tests for all endpoints
+  - Performance benchmarks across document types
+  - Stress testing for concurrent requests
+
+**Quality Metrics**:
+- Uptime: 99.9% SLA
+- Processing accuracy: 98%+ for standard documents
+- API response time: < 5s for typical documents
+- Support for 109 languages with consistent quality
 
 ## 🔒 License Compliance
 
