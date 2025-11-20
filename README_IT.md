@@ -2,6 +2,38 @@
 
 API OCR ad alte prestazioni basata su PaddleOCR-VL, deployata su Google Cloud Run con GPU NVIDIA L4.
 
+**Versione Attuale (v0.6.0)**: Estrazione testo da PDF con rilevamento intelligente pagine vuote.
+
+## ✨ Funzionalità
+
+- 🚀 **OCR Accelerato GPU**: NVIDIA L4 GPU (24GB VRAM) per inferenza veloce
+- 🧠 **Rilevamento Pagine Vuote**: Analisi varianza ROI riduce tempi di elaborazione
+- 🌍 **Supporto Multilingua**: 109 lingue supportate da PaddleOCR-VL
+- 📄 **Estrazione Testo**: Estrae testo da PDF, tabelle, formule e grafici
+- 🔌 **API Compatibile OpenAI**: Sostituzione diretta per endpoint OpenAI
+- 📊 **Statistiche Dettagliate**: Metriche di elaborazione per pagina
+- 🐳 **Production-Ready**: Container Docker ottimizzato per Cloud Run
+- 📝 **Output Testo Plain**: Estrazione testo pulito (v0.6.0)
+
+## 🗺️ Roadmap
+
+### v0.6.0 (Attuale) ✅
+- Estrazione testo plain da PDF
+- Rilevamento intelligente pagine vuote
+- API compatibile OpenAI
+- Accelerazione GPU con NVIDIA L4
+
+### v1.0.0 (Prossima) 🚧
+- **Output Markdown Strutturato**: Formattazione markdown con titoli, tabelle, liste
+- **Rilevamento Layout**: Riconoscimento automatico struttura documento
+- **Tabelle Avanzate**: Formato markdown table
+- Migrazione a pipeline ufficiale PaddleOCR
+
+### v2.0.0 (Futura) 📋
+- **Generazione DOCX**: Conversione diretta in formato Microsoft Word
+- **Estrazione Immagini**: Estrazione e incorporamento immagini da documenti
+- **Formattazione Avanzata**: Preservazione stile e layout documento
+
 ## 🚀 Quick Start
 
 ```bash

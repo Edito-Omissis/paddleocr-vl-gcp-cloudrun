@@ -2,16 +2,18 @@
 
 High-performance OCR API based on PaddleOCR-VL, deployed on Google Cloud Run with NVIDIA L4 GPU.
 
+**Current Version (v0.6.0)**: Text extraction from PDFs with intelligent blank page detection.
+
 ## ✨ Features
 
 - 🚀 **GPU-Accelerated OCR**: NVIDIA L4 GPU (24GB VRAM) for fast inference
 - 🧠 **Intelligent Blank Page Detection**: ROI-based variance analysis reduces processing time
 - 🌍 **Multilingual Support**: 109 languages supported by PaddleOCR-VL
-- 📄 **Multiple Formats**: Text, tables, formulas, and charts recognition
+- 📄 **Text Extraction**: Extracts text from PDFs, tables, formulas, and charts
 - 🔌 **OpenAI-Compatible API**: Drop-in replacement for OpenAI endpoints
 - 📊 **Detailed Statistics**: Per-page processing metrics and confidence scores
 - 🐳 **Production-Ready**: Docker container optimized for Cloud Run
-- 📝 **Markdown Output**: Clean, structured text output
+- 📝 **Plain Text Output**: Clean text extraction (v0.6.0)
 
 ## 🚀 Quick Start
 
@@ -106,7 +108,7 @@ curl -X POST https://your-service.run.app/ocr \
   "pages_skipped": 5,
   "skipped_pages": [2, 5, 8, 12, 15],
   "processed_pages": [1, 3, 4, 6, 7, 9, 10, 11, 13, 14, 16],
-  "markdown": "<!-- Page 1 -->\n\n# Document Title\n\n...",
+  "markdown": "<!-- Page 1 -->\n\nDocument Title\n\n...",
   "total_chars": 15234,
   "page_stats": [...]
 }
@@ -188,6 +190,25 @@ python3 server.py
 - **Auto-scaling**: 0-3 instances based on load
 - **Concurrency**: 10 requests per instance
 - **Max throughput**: ~30 concurrent requests
+
+## 🗺️ Roadmap
+
+### v0.6.0 (Current) ✅
+- Plain text extraction from PDFs
+- Intelligent blank page detection
+- OpenAI-compatible API
+- GPU acceleration with NVIDIA L4
+
+### v1.0.0 (Next) 🚧
+- **Structured Markdown Output**: Proper markdown formatting with headings, tables, lists
+- **Layout Detection**: Automatic document structure recognition
+- **Enhanced Table Recognition**: Markdown table format
+- Migration to official PaddleOCR pipeline
+
+### v2.0.0 (Future) 📋
+- **DOCX Generation**: Direct conversion to Microsoft Word format
+- **Image Extraction**: Extract and embed images from documents
+- **Advanced Formatting**: Preserve document styling and layout
 
 ## 🔒 License Compliance
 
