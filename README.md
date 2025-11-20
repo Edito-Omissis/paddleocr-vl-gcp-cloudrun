@@ -230,6 +230,6 @@ For questions or support, please open an issue on GitHub.
 
 ---
 
-**Version**: v9  
+**Version**: v0.6.0  
 **Last Updated**: November 2025  
 **Status**: Production Ready ✅

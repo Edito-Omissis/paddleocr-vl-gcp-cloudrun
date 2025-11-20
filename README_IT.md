@@ -116,6 +116,6 @@ Proprietario - Uso interno
 
 ---
 
-**Versione**: v9  
-**Ultimo deploy**: 19 Novembre 2025  
+**Versione**: v0.6.0  
+**Ultimo deploy**: 20 Novembre 2025  
 **Status**: ✅ Production Ready
